@@ -11,6 +11,7 @@ const storeData = {
         products: [],
         inCart: [],
         isAuthencation: false,
+        isLoading: false,
     },
     getters: {
         // TODO: Add getters
@@ -25,10 +26,14 @@ const storeData = {
             state.inCart.map(product => { total += (product.price) * (product.qty) });
             return total
         },
-        isAuthencation: state => state.isAuthencation
+        isAuthencation: state => state.isAuthencation,
+        isLoading: state => state.isLoading
     },
     mutations: {
         GET_ALL_PRODUCT(state, products){
+            setTimeout(function(){
+                state.isLoading = true
+            }, 500);
             products.forEach((el) => {
                 if(el.liked == "yes"){
                     el.liked = "yes"

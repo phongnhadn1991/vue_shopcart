@@ -4,9 +4,9 @@
       <Header></Header>
       <div class="main_content">
 <!--        <keep-alive>-->
-        <keep-alive include="ProductList,ProductManagerList">
+        <!-- <keep-alive include="ProductList,ProductManagerList"> -->
           <router-view></router-view>
-        </keep-alive>
+        <!-- </keep-alive> -->
 <!--        </keep-alive>-->
       </div>
     </div>
