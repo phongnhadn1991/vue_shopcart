@@ -11,7 +11,6 @@ const storeData = {
         products: [],
         inCart: [],
         isAuthencation: true,
-        isLoading: false,
         totalItemProduct: 0
     },
     getters: {
@@ -28,13 +27,9 @@ const storeData = {
             return total
         },
         isAuthencation: state => state.isAuthencation,
-        isLoading: state => state.isLoading
     },
     mutations: {
         GET_ALL_PRODUCT(state, products){
-            setTimeout(function(){
-                state.isLoading = true
-            }, 500);
             state.totalItemProduct = products.length
             products.forEach((el) => {
                 if(el.liked == "yes"){

@@ -3,6 +3,7 @@
         <div class="nav-wrapper">
             <router-link class="brand-logo left" :to="{name: 'product.list.manager'}">MCN</router-link>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><router-link :to="{name: 'wordpress'}">Wordpress</router-link></li>
                 <li v-if="isAuthencation == true"><router-link :to="{name: 'product.list.manager'}">Product Manager</router-link></li>
                 <li><router-link :to="{name: 'product.list'}">Product List</router-link></li>
                 <li><router-link :to="{name: 'product.favorite'}">Favorite ({{ itemsInLiked }})</router-link></li>

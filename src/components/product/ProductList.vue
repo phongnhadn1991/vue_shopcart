@@ -62,13 +62,14 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       searchQuery: "",
       pageOfItems: []
     };
   },
 
   computed: {
-    ...mapGetters(["products", "isLoading"]),
+    ...mapGetters(["products"]),
     filteredList() {
       return this.products.filter((item) => {
         return item.name.toLowerCase().includes(this.searchQuery.toLowerCase());
@@ -85,6 +86,8 @@ export default {
   methods: {
     ...mapActions(["getAllProduct"]),
     onChangePage(pageOfItems) {
+      this.isLoading = false
+      setTimeout(() => this.isLoading = true, 200);
       this.pageOfItems = pageOfItems;
     }
   },
@@ -101,4 +104,12 @@ h6 {
     min-height: 70px;
   }
 }
+
+li.page-item.disabled {
+    pointer-events: none !important;
+    a {
+      pointer-events: none !important;
+    }
+}
+
 </style>
