@@ -10,7 +10,7 @@ const storeData = {
     state: {
         products: [],
         inCart: [],
-        isAuthencation: false,
+        isAuthencation: true,
         isLoading: false,
     },
     getters: {
@@ -105,8 +105,9 @@ const storeData = {
         // TODO: Add actions
         async getAllProduct({commit}){
             try {
-                const res = await axios.get('https://6177a06f9c328300175f5a35.mockapi.io/products')
+                const res = await axios.get(`https://6177a06f9c328300175f5a35.mockapi.io/products?page=${currentPage}&limit=${postPerpage}`)
                 commit('GET_ALL_PRODUCT', res.data)
+                console.log(res.data.length)
             } catch (error) {
                 console.log(error)
             }

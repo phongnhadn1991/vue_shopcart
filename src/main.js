@@ -9,6 +9,9 @@ import store from './store';
 import 'materialize-css/dist/css/materialize.min.css'
 import 'material-design-icons/iconfont/material-icons.css'
 
+import JwPagination from 'jw-vue-pagination';
+Vue.component('jw-pagination', JwPagination);
+
 Vue.config.productionTip = false
 
 new Vue({

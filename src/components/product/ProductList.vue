@@ -27,11 +27,15 @@
 
       <div v-if="isLoading">
         <ProductItem
-          v-for="product in filteredList"
+          v-for="product in pageOfItems"
           :key="product.invId"
           :product="product"
         ></ProductItem>
       </div>
+    </div>
+
+    <div class="row">
+      <jw-pagination :items="filteredList" @changePage="onChangePage" :pageSize="6" :maxPages="4"></jw-pagination>
     </div>
     <div class="row">
       <div class="row title-page">
@@ -57,6 +61,7 @@ export default {
   data() {
     return {
       searchQuery: "",
+      pageOfItems: []
     };
   },
 
@@ -77,6 +82,9 @@ export default {
 
   methods: {
     ...mapActions(["getAllProduct"]),
+    onChangePage(pageOfItems) {
+      this.pageOfItems = pageOfItems;
+    }
   },
 };
 </script>
