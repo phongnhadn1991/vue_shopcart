@@ -12,6 +12,7 @@ const storeData = {
         inCart: [],
         isAuthencation: true,
         isLoading: false,
+        totalItemProduct: 0
     },
     getters: {
         // TODO: Add getters
@@ -34,6 +35,7 @@ const storeData = {
             setTimeout(function(){
                 state.isLoading = true
             }, 500);
+            state.totalItemProduct = products.length
             products.forEach((el) => {
                 if(el.liked == "yes"){
                     el.liked = "yes"
@@ -105,9 +107,8 @@ const storeData = {
         // TODO: Add actions
         async getAllProduct({commit}){
             try {
-                const res = await axios.get(`https://6177a06f9c328300175f5a35.mockapi.io/products?page=${currentPage}&limit=${postPerpage}`)
+                const res = await axios.get(`https://6177a06f9c328300175f5a35.mockapi.io/products`)
                 commit('GET_ALL_PRODUCT', res.data)
-                console.log(res.data.length)
             } catch (error) {
                 console.log(error)
             }

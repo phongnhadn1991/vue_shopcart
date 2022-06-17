@@ -37,6 +37,8 @@
     <div class="row">
       <jw-pagination :items="filteredList" @changePage="onChangePage" :pageSize="6" :maxPages="4"></jw-pagination>
     </div>
+
+    {{ this.$store.state.totalItemProduct }}
     <div class="row">
       <div class="row title-page">
         <h3>Cart</h3>
