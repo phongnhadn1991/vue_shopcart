@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="preloader-wrapper small active" v-if="!isLoading">
+      <!-- <div class="preloader-wrapper small active" v-if="!isLoading">
         <div class="spinner-layer spinner-green-only">
           <div class="circle-clipper left">
             <div class="circle"></div>
@@ -23,9 +23,9 @@
             <div class="circle"></div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div v-if="isLoading">
+      <div>
         <ProductItem
           v-for="product in pageOfItems"
           :key="product.invId"
@@ -62,7 +62,6 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
       searchQuery: "",
       pageOfItems: []
     };
@@ -86,8 +85,6 @@ export default {
   methods: {
     ...mapActions(["getAllProduct"]),
     onChangePage(pageOfItems) {
-      this.isLoading = false
-      setTimeout(() => this.isLoading = true, 200);
       this.pageOfItems = pageOfItems;
     }
   },
@@ -103,13 +100,6 @@ h6 {
   .collection-item {
     min-height: 70px;
   }
-}
-
-li.page-item.disabled {
-    pointer-events: none !important;
-    a {
-      pointer-events: none !important;
-    }
 }
 
 </style>
