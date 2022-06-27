@@ -45,6 +45,11 @@ const routes = [
         path: '/cart',
         component: () => import("../components/cart/CartContainer.vue")
     },
+    {
+        name: 'wordpress',
+        path: '/wordpress',
+        component: () => import("../components/wordpress/WordpressContainer.vue")
+    },
 ]
 
 const router = new VueRouter({
